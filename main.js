@@ -10,16 +10,16 @@ const tableBase=document.getElementById("table-base");
 const findButton=document.getElementById("find-btn");
 const filterButton1=document.getElementById("filter-btn-1");
 const filterButton2=document.getElementById("filter-btn-2");
-let products=document.querySelectorAll("#table-base .product");
 const minInput=document.getElementById("min-price");
 const maxInput=document.getElementById("max-price");
 const categoryInput=document.querySelector(".filter-by-category #categories");
+const categories = ["meiset", "mebel", "elektronika", "usaq", "geyim", "qida"];
+let products=document.querySelectorAll("#table-base .product");
 
 createButton.addEventListener("click",createCheck);
 filterButton1.addEventListener("click",filterCheck1);
 filterButton2.addEventListener("click",filterCheck2);
 // findButton.addEventListener("click",findCheck);
-
 
 
 function createCheck()
@@ -31,14 +31,12 @@ function createCheck()
 }
 
 
-
 function validationOfCreate(prodName, prodPrice, prodCount, prodCategory){    
     // ilk olaraq yanlis daxil edilme halini yoxlayiriq
     if(nameCheck(prodName) || !priceCheck(prodPrice) ||  countCheck(prodCount) || categoryCheck(prodCategory) || existOfProduct(prodName, prodPrice, prodCount, prodCategory))                                         
         return false;                                                                                                                                                                                                                                           
     return true;
 }
-
 
 
 function create(){
@@ -85,11 +83,10 @@ function create(){
 }
 
 
-
 function filterCheck1(){
-    if( minInput.value.trim.length===0)
+    if( minInput.value.trim().length===0)
     minInput.value="0";
-    if( maxInput.value.trim.length===0)
+    if( maxInput.value.trim().length===0)
     maxInput.value=99999;
 
     if(!priceCheck(minInput.value) || !priceCheck(maxInput.value) || Number(minInput.value) > Number(maxInput.value))
@@ -100,23 +97,29 @@ function filterCheck1(){
         pricesOfElements.forEach(element => {
             if( Number(element.innerHTML) < Number(minPrice.value) || Number(element.innerHTML) > Number(maxPrice.value))
                 element.parentElement.parentElement.style.display="none";
+            else
+                element.parentElement.parentElement.style.display="flex";
         });
     }
 }
 
 
 function filterCheck2(){
-    // if(!priceCheck(minInput.value) || !priceCheck(maxInput.value) || Number(minInput.value) > Number(maxInput.value))
-    //     invalidInput();
-    // else
-    // {
-    //     const pricesOfElements=document.querySelectorAll(".product .pr-price p");
-    //     pricesOfElements.forEach(element => {
-    //         if( Number(element.innerHTML) < Number(minPrice.value) || Number(element.innerHTML) > Number(maxPrice.value))
-    //             element.parentElement.parentElement.style.display="none";
-    //     });
-    // }
+    if(categories.indexOf(categoryInput.value) === -1)
+        invalidInput();
+    else
+    {
+        const categoriesOfElements=document.querySelectorAll(".product .pr-category p");
+        categoriesOfElements.forEach(element => {
+            if( categoryInput.value !== element.innerHTML)
+                element.parentElement.parentElement.style.display="none";
+            else
+                element.parentElement.parentElement.style.display="flex";
+        });
+    }
 }
+
+
 
 
 
