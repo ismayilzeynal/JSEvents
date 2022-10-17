@@ -8,15 +8,16 @@ const minPrice=document.getElementById("min-price");
 const maxPrice=document.getElementById("max-price");
 const tableBase=document.getElementById("table-base");
 const findButton=document.getElementById("find-btn");
-const filterButton=document.getElementById("filter-btn");
+const filterButton1=document.getElementById("filter-btn-1");
+const filterButton2=document.getElementById("filter-btn-2");
 const products=document.getElementsByClassName("product");
 const minInput=document.getElementById("min-price");
 const maxInput=document.getElementById("max-price");
 const categoryInput=document.querySelector(".filter-by-category #categories");
 
 createButton.addEventListener("click",createCheck);
-findButton.addEventListener("click",findCheck);
-findButton.addEventListener("click",filterCheck);
+// filterButton1.addEventListener("click",filterCheck1);
+// findButton.addEventListener("click",findCheck);
 
 
 
@@ -87,29 +88,23 @@ function create(){
     divCategory.appendChild(pCategory);
 }
 
-// function findCheck(){
-//     if()
-//     // products.filter(element => element >= min && element <= max)
+
+
+// function filterCheck1(){
+//     if(!priceCheck(minInput.value) || !priceCheck(maxInput.value))
+//         invalidInput();
+//     else
+//     {
+//         for(i=0;i<products.length;i++)
+//         {
+//             let idText="pro-"+i;
+//             products[i].setAttribute("id",idText);
+
+//         }
+
+//         // foreach
+//     }
 // }
-
-
-
-function filterCheck(){
-    if(!priceCheck(minInput.value) || priceCheck(maxInput.value) || categoryCheck(categoryInput.value))
-        invalidInput();
-    else
-    {
-        if(minInput.value.trim.length>0 && maxInput.value.trim.length)
-        {
-            
-        }
-    }
-
-
-    
-
-    // products.filter(element => element >= min && element <= max)
-}
 
 
 
