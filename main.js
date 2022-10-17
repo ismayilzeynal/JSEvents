@@ -87,6 +87,11 @@ function create(){
 
 
 function filterCheck1(){
+    if( minInput.value.trim.length===0)
+    minInput.value="0";
+    if( maxInput.value.trim.length===0)
+    maxInput.value=99999;
+
     if(!priceCheck(minInput.value) || !priceCheck(maxInput.value) || Number(minInput.value) > Number(maxInput.value))
         invalidInput();
     else
