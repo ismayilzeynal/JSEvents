@@ -84,6 +84,7 @@ function create(){
 
 
 function filterCheck1(){
+    // default values
     if( minInput.value.trim().length===0)
     minInput.value="0";
     if( maxInput.value.trim().length===0)
