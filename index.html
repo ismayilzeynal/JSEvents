@@ -29,12 +29,12 @@
                 <div class="col-3">
                     <select name="categories" id="categories">
                         <option disabled selected value> -- categories -- </option>>
-                        <option value="javascript">Məişət</option>
-                        <option value="php">Mebel</option>
-                        <option value="python">Elektronika</option>
-                        <option value="golang">Uşaq və Əyləncə</option>
-                        <option value="java">Geyim</option>
-                        <option value="java">Qida</option>
+                        <option value="meiset">Məişət</option>
+                        <option value="mebel">Mebel</option>
+                        <option value="elektronika">Elektronika</option>
+                        <option value="usaq">Uşaq və Əyləncə</option>
+                        <option value="geyim">Geyim</option>
+                        <option value="qida">Qida</option>
                     </select>
                 </div>
             </div>
@@ -84,14 +84,19 @@
                     <input type="text" placeholder="search" name="search" id="search">
                 </div>
 
-                <div class="find">
-                    <button>Find</button>
+                
+                <div class="find-filter-sort">
+                    <div class="filt">
+                        <button id="filter-btn-1">Filter</button>
+                        <button id="filter-btn-2">Filter</button>
+                    </div>
+                    <button id="find-btn">Find</button>
                 </div>
             </div>
 
 
             
-            <div class="table-main">
+            <div class="table-main" id="table-base">
                 <div class="products-header">
                     <div class="col-3 pr-name">
                         <p>Product Name</p>
@@ -108,7 +113,7 @@
                 </div>
 
 
-                <div class="product">
+                <!-- <div class="product">
                     <div class="col-3 pr-name">
                         <p>Alma</p>
                     </div>
@@ -121,7 +126,10 @@
                     <div class="col-3 pr-category">
                         <p>Qida</p>
                     </div>
-                </div>
+                </div> -->
+
+
+
             </div>
         </div>
     </section>

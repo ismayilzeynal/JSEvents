@@ -155,11 +155,17 @@
     }
 }
 
-.find {
+.find-filter-sort {
     margin-top: 18px;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    .filt{
+        width: 44%;
+        display: flex;
+        justify-content: space-between;
+    }
 
     button {
         padding: 8px 40px !important;

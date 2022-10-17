@@ -174,24 +174,34 @@
   transition: all 0.2s;
 }
 
-.find {
+.find-filter-sort {
   margin-top: 18px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.find button {
+.find-filter-sort .filt {
+  width: 44%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.find-filter-sort button {
   padding: 8px 40px !important;
   background-color: #3973be;
   color: #fff;
 }
 
-.find button:hover {
+.find-filter-sort button:hover {
   background-color: #35629e;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
