@@ -10,7 +10,7 @@ const tableBase=document.getElementById("table-base");
 const findButton=document.getElementById("find-btn");
 const filterButton1=document.getElementById("filter-btn-1");
 const filterButton2=document.getElementById("filter-btn-2");
-const products=document.querySelectorAll("#table-base .product");
+let products=document.querySelectorAll("#table-base .product");
 const minInput=document.getElementById("min-price");
 const maxInput=document.getElementById("max-price");
 const categoryInput=document.querySelector(".filter-by-category #categories");
@@ -31,7 +31,8 @@ function createCheck()
 
 function validationOfCreate(prodName, prodPrice, prodCount, prodCategory){    
     // ilk olaraq yanlis daxil edilme halini yoxlayiriq
-    if(nameCheck(prodName) || !priceCheck(prodPrice) ||  countCheck(prodCount) || categoryCheck(prodCategory))   // || existOfProduct(prodName, prodPrice, prodCount, prodCategory)                                      
+    console.log(existOfProduct(prodName, prodPrice, prodCount, prodCategory));
+    if(nameCheck(prodName) || !priceCheck(prodPrice) ||  countCheck(prodCount) || categoryCheck(prodCategory) || existOfProduct(prodName, prodPrice, prodCount, prodCategory))                                         
         return false;                                                                                                                                                                                                                                           
     return true;
 }
@@ -138,10 +139,14 @@ function invalidInput()
     alert("Please input correctly!");
 }
 
-// function existOfProduct(prodName, prodPrice, prodCount, prodCategory)
-// {
-//     products.forEach(element => {
-//         if( )
-//             element.parentElement.parentElement.style.display="none";
-//     });
-// }
+function existOfProduct(prodName, prodPrice, prodCount, prodCategory)
+{
+    products=document.querySelectorAll("#table-base .product");
+
+    for(i=0; i<products.length; i++)
+    {
+        if(products[i].childNodes[0].childNodes[0].innerHTML === prodName && products[i].childNodes[1].childNodes[0].innerHTML === prodPrice && products[i].childNodes[2].childNodes[0].innerHTML === prodCount && products[i].childNodes[3].childNodes[0].innerHTML === prodCategory) 
+            return true;
+    }
+    return false;
+}
